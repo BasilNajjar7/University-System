@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using University_system.Model;
 
 namespace University_system.Data
 {
@@ -12,5 +13,8 @@ namespace University_system.Data
         {
             base.OnModelCreating(builder);
         }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Material> Materials { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
