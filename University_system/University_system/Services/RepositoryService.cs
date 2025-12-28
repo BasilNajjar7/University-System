@@ -19,7 +19,7 @@ namespace University_system.Services
             _context.SaveChanges();
             return entity;
         }
-        public T Delete(string id)
+        public T Delete(Guid id)
         {
             var result = _context.Set<T>().Find(id);
             
@@ -32,10 +32,10 @@ namespace University_system.Services
             return result;
         }
         public IEnumerable<T> GetAll() => _context.Set<T>().ToList();
-        public T GetById(string id) => _context.Set<T>().Find(id);
+        public T GetById(Guid id) => _context.Set<T>().Find(id);
         public IEnumerable<Student> GetByYear(int year) => 
             _context.Set<Student>().Where(b=>b.Year_of_registration.Equals(year)).ToList();
-        public T Update(string id,T entity)
+        public T Update(Guid id,T entity)
         {
             var res = _context.Set<T>().Find(id);
 

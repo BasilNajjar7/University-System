@@ -20,7 +20,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpGet("id")]
-        public IActionResult GetById(string id)
+        public IActionResult GetById(Guid id)
         {
             var result = _repository.GetById(id);
 
@@ -49,7 +49,7 @@ namespace University_system.Controllers
         }
         [HttpDelete]
         [Route("Remove student")]
-        public IActionResult DeleteById(string id)
+        public IActionResult DeleteById(Guid id)
         {
             var result = _repository.Delete(id);
             

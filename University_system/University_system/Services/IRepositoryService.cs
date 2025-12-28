@@ -5,11 +5,11 @@ namespace University_system.Services
 {
     public interface IRepositoryService<T>where T : class
     {
-        T GetById(string id);
+        T GetById(Guid id);
         IEnumerable<T> GetAll();
-        T Update(string id,T entity);
+        T Update(Guid id,T entity);
         IEnumerable<Student> GetByYear(int year);
         T Add(T entity);
-        T Delete(string id);
+        T Delete(Guid id);
     }
 }

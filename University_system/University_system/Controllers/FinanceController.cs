@@ -13,7 +13,7 @@ namespace University_system.Controllers
             _repository = repository;
         }
         [HttpGet("Get Student Balance by id")]
-        public IActionResult GetById(string id)
+        public IActionResult GetById(Guid id)
         {
             var result=_repository.GetById(id);
             
@@ -23,7 +23,7 @@ namespace University_system.Controllers
         }
 
         [HttpPut("id")]
-        public IActionResult CashDeposit(string id,int money)
+        public IActionResult CashDeposit(Guid id,int money)
         {
             var result = _repository.GetById(id);
 

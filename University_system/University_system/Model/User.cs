@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace University_system.Model
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<Guid>
     {
         [Required,MaxLength(50)]
         public string First_Name {  get; set; }

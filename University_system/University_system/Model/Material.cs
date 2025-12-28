@@ -4,7 +4,7 @@ namespace University_system.Model
 {
     public class Material
     {
-        public string MaterialId {  get; set; }
+        public Guid MaterialId {  get; set; }
         [Required,MaxLength(50)]
         public string Name {  get; set; }
         [Required]
