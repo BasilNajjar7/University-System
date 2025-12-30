@@ -13,21 +13,22 @@ namespace University_system.Controllers
             _repository = repository;
         }
         [HttpGet("Get Student Balance by id")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            var result=_repository.GetById(id);
+            var result=await _repository.GetById(id);
             
-            if(result == null)return NotFound("Sorry");
+            if(result == null)return NotFound();
 
             return Ok(result.Student_Balance);
         }
 
         [HttpPut("id")]
-        public IActionResult CashDeposit(Guid id,int money)
+        public async Task<IActionResult> CashDeposit(Guid id,int money)
         {
-            var result = _repository.GetById(id);
+            var result = await _repository.GetById(id);
 
-            if (result == null) return NotFound();
+            if (result == null) 
+                return NotFound();
 
             result.Student_Balance += money;
             _repository.Update(id, result);

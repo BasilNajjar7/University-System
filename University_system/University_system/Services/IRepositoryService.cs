@@ -1,15 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using University_system.DTO;
 using University_system.Model;
 
 namespace University_system.Services
 {
     public interface IRepositoryService<T>where T : class
     {
-        T GetById(Guid id);
-        IEnumerable<T> GetAll();
-        T Update(Guid id,T entity);
-        IEnumerable<Student> GetByYear(int year);
+        Task<T> GetById(Guid id);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> Update(Guid id,T entity);
+        Task<IEnumerable<Student>> GetByYear(int year);
         T Add(T entity);
         T Delete(Guid id);
+        Task<Material> GetMaterialByName(string name);
+        Task<AuthModel> RegisterAsync_stu(AddStudentDTO model);
+        Task<AuthModel> RegisterAsync_emp(AddEmployeeDTO model);
+        Task<AuthModel> GetTokenAsync(TokenRequestModel model);
     }
 }

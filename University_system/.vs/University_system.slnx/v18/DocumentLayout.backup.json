@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20251228191217_InitialCreat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:University_system\\Migrations\\20251228191217_InitialCreat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\controllers\\financecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\controllers\\financecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,45 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20251228191217_InitialCreat.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20251228191217_InitialCreat.cs",
-              "RelativeDocumentMoniker": "University_system\\Migrations\\20251228191217_InitialCreat.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20251228191217_InitialCreat.cs",
-              "RelativeToolTip": "University_system\\Migrations\\20251228191217_InitialCreat.cs",
-              "ViewState": "AgIAABIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
+              "RelativeDocumentMoniker": "University_system\\Services\\RepositoryService.cs",
+              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
+              "RelativeToolTip": "University_system\\Services\\RepositoryService.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAiwG0AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T19:12:17.223Z",
+              "WhenOpened": "2025-12-30T15:36:52.369Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FinanceController.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\FinanceController.cs",
-              "RelativeDocumentMoniker": "University_system\\Controllers\\FinanceController.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\FinanceController.cs",
-              "RelativeToolTip": "University_system\\Controllers\\FinanceController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T19:03:41.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "University_system\\Controllers\\StudentController.cs",
               "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\StudentController.cs",
               "RelativeToolTip": "University_system\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAUwBcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwDIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T19:00:44.577Z",
+              "WhenOpened": "2025-12-30T15:34:57.27Z",
               "EditorCaption": ""
             }
           ]

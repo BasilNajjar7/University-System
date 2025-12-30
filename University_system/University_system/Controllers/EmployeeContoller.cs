@@ -6,36 +6,38 @@ using University_system.Services;
 namespace University_system.Controllers
 {
     [ApiController]
-    public class StudentController : ControllerBase
+    public class EmployeeContoller : ControllerBase
     {
-        private readonly IRepositoryService<Student> _repository;
-        public StudentController(IRepositoryService<Student> repository)
+        private readonly IRepositoryService<Employee> _repository;
+        public EmployeeContoller(IRepositoryService<Employee> repository)
         {
             _repository = repository;
         }
-        [HttpGet("register year")]
-        public async Task<IActionResult> GetByYear(int year)
+        [HttpGet]
+        [Route("Get all employee")]
+        public async Task<IActionResult> GetAll()
         {
-            var result = await _repository.GetByYear(year);
+            var result = await _repository.GetAll();
 
             return Ok(result);
         }
-        [HttpGet("id")]
+        [HttpGet]
+        [Route("Get employee by id")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _repository.GetById(id);
 
-            if(result == null)return NotFound();
+            if (result == null) return NotFound();
 
             return Ok(result);
         }
-        [HttpPost("Student register")]
-        public async Task<IActionResult> RigisterAsync([FromBody] AddStudentDTO model)
+        [HttpPost("Employee register")]
+        public async Task<IActionResult> RigisterAsync_emp([FromBody] AddEmployeeDTO model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _repository.RegisterAsync_stu(model);
+            var result = await _repository.RegisterAsync_emp(model);
 
             if (!result.IsAuthenticated)
                 return BadRequest(result.Massage);
@@ -43,27 +45,27 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpPut]
-        [Route("Update student data")]
-        public async Task<IActionResult> Update(Student student)
+        [Route("Update emplyee data")]
+        public async Task<IActionResult> Update(Employee employee)
         {
-            if (await _repository.GetById(student.Id) == null)
+            if (_repository.GetById(employee.Id) == null)
                 return NotFound();
 
-            var result = await _repository.Update(student.Id,student);
+            var result = await _repository.Update(employee.Id, employee);
 
             return Ok(result);
         }
         [HttpDelete]
-        [Route("Remove student")]
+        [Route("Remove employee")]
         public IActionResult DeleteById(Guid id)
         {
             var result = _repository.Delete(id);
-            
-            if(result==null)return NotFound();
+
+            if (result == null) return NotFound();
 
             return Ok();
         }
-        [HttpPost("Token stu")]
+        [HttpPost("Token emp")]
         public async Task<IActionResult> GetTokenAsync([FromBody] TokenRequestModel model)
         {
             if (!ModelState.IsValid)

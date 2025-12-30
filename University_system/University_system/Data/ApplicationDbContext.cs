@@ -12,6 +12,7 @@ namespace University_system.Data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<User>().HasIndex(b => b.Email).IsUnique();
             base.OnModelCreating(builder);
         }
         public DbSet<Student> Students { get; set; }
