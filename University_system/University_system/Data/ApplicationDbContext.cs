@@ -13,10 +13,25 @@ namespace University_system.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<User>().HasIndex(b => b.Email).IsUnique();
+
+            builder.Entity<MaterialStudent>()
+                .HasKey(k => new { k.StudentId, k.MaterialId });
+
+            builder.Entity<MaterialStudent>()
+                .HasOne(o => o.Student)
+                .WithMany(o => o.MaterialStudents)
+                .HasForeignKey(o => o.StudentId);
+
+            builder.Entity<MaterialStudent>()
+                .HasOne(o => o.Material)
+                .WithMany(o => o.MaterialStudents)
+                .HasForeignKey(o => o.MaterialId);
+
             base.OnModelCreating(builder);
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<MaterialStudent> MaterialStudents { get; set; }
     }
 }

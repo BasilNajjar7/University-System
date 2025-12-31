@@ -1,31 +1,5 @@
 [
   {
-    "ContainingType": "University_system.Controllers.MaterialController",
-    "Method": "GetAll",
-    "RelativePath": "",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "University_system.Controllers.MaterialController",
-    "Method": "AddNewMaterial",
-    "RelativePath": "Add material",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "material",
-        "Type": "University_system.DTO.MaterialDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "University_system.Controllers.EmployeeContoller",
     "Method": "RigisterAsync_emp",
     "RelativePath": "api/employee/add",
@@ -125,56 +99,8 @@
     "Parameters": [
       {
         "Name": "employee",
-        "Type": "University_system.Model.Employee",
+        "Type": "University_system.DTO.AddEmployeeDTO",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "University_system.Controllers.MaterialController",
-    "Method": "DeleteMaterial",
-    "RelativePath": "Delete by name",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "MaterialName",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "University_system.Controllers.MaterialController",
-    "Method": "GetByName",
-    "RelativePath": "Get by name",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "University_system.Controllers.FinanceController",
-    "Method": "GetById",
-    "RelativePath": "Get Student Balance by id",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -182,7 +108,7 @@
   {
     "ContainingType": "University_system.Controllers.FinanceController",
     "Method": "CashDeposit",
-    "RelativePath": "id",
+    "RelativePath": "api/finance/add",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -201,9 +127,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "University_system.Controllers.StudentController",
+    "ContainingType": "University_system.Controllers.FinanceController",
     "Method": "GetById",
-    "RelativePath": "id",
+    "RelativePath": "api/finance/id",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -217,9 +143,136 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "University_system.Controllers.MaterialController",
+    "Method": "AddNewMaterial",
+    "RelativePath": "api/material/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "material",
+        "Type": "University_system.DTO.MaterialDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialController",
+    "Method": "GetAll",
+    "RelativePath": "api/material/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialController",
+    "Method": "DeleteMaterial",
+    "RelativePath": "api/material/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MaterialName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialController",
+    "Method": "GetByName",
+    "RelativePath": "api/material/name",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialController",
+    "Method": "UpdateMaterial",
+    "RelativePath": "api/material/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "material",
+        "Type": "University_system.DTO.MaterialDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialStudentController",
+    "Method": "GetAllMaterial",
+    "RelativePath": "api/materialstudent/allmaterial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialStudentController",
+    "Method": "DeleteMaterial",
+    "RelativePath": "api/materialstudent/deletematerial",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentmaterial",
+        "Type": "University_system.DTO.DownloadMaterialDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.MaterialStudentController",
+    "Method": "DownloadMaterial",
+    "RelativePath": "api/materialstudent/downloadmaterial",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Studentid",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Materialid",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "University_system.Controllers.StudentController",
     "Method": "GetByYear",
-    "RelativePath": "register year",
+    "RelativePath": "api/student/allbyyear",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -235,7 +288,7 @@
   {
     "ContainingType": "University_system.Controllers.StudentController",
     "Method": "DeleteById",
-    "RelativePath": "Remove student",
+    "RelativePath": "api/student/delete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -250,8 +303,24 @@
   },
   {
     "ContainingType": "University_system.Controllers.StudentController",
-    "Method": "RigisterAsync",
-    "RelativePath": "Student register",
+    "Method": "GetById",
+    "RelativePath": "api/student/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "University_system.Controllers.StudentController",
+    "Method": "RegisterAsync",
+    "RelativePath": "api/student/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -267,7 +336,7 @@
   {
     "ContainingType": "University_system.Controllers.StudentController",
     "Method": "GetTokenAsync",
-    "RelativePath": "Token stu",
+    "RelativePath": "api/student/token",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -281,32 +350,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "University_system.Controllers.MaterialController",
-    "Method": "UpdateMaterial",
-    "RelativePath": "Update material",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "material",
-        "Type": "University_system.DTO.MaterialDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "University_system.Controllers.StudentController",
     "Method": "Update",
-    "RelativePath": "Update student data",
+    "RelativePath": "api/student/update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "student",
-        "Type": "University_system.Model.Student",
+        "Type": "University_system.DTO.AddStudentDTO",
         "IsRequired": true
       }
     ],

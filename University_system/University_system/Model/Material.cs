@@ -12,6 +12,6 @@ namespace University_system.Model
         public string Completion_requires { get; set;  }
         [Required]
         public string Subject_professor { get; set; }
-        public ICollection<Student>Students { get; set; }
+        public ICollection<MaterialStudent> MaterialStudents { get; set; }
     }
 }

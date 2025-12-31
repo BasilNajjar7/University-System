@@ -35,7 +35,7 @@ namespace University_system.Controllers
             result.Student_Balance += money;
             _repository.Update(id, result);
 
-            return Ok(result);
+            return Ok();
         }
     }
 }

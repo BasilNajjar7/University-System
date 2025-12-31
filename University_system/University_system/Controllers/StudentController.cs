@@ -18,7 +18,7 @@ namespace University_system.Controllers
         public async Task<IActionResult> GetByYear(int year)
         {
             var result = await _repository.GetByYear(year);
-
+            
             return Ok(result);
         }
         [HttpGet]
@@ -47,12 +47,24 @@ namespace University_system.Controllers
         }
         [HttpPut]
         [Route("api/student/update")]
-        public async Task<IActionResult> Update(Student student)
+        public async Task<IActionResult> Update(AddStudentDTO student)
         {
             if (await _repository.GetById(student.Id) == null)
                 return NotFound();
 
-            var result = await _repository.Update(student.Id,student);
+            var st = new Student();
+
+            st.Id = student.Id;
+            st.First_Name = student.First_Name;
+            st.Last_Name = student.Last_Name;
+            st.UserName = student.UserName;
+            st.Gender = student.Gender;
+            st.PhoneNumber = student.Phone_Number;
+            st.Year_of_registration= student.Year_of_registration;
+            st.Is_Grant = student.Is_Grant;
+            st.GPA= student.GPA;
+
+            var result = await _repository.Update(student.Id,st);
 
             return Ok(result);
         }

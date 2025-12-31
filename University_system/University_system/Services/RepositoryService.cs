@@ -28,6 +28,63 @@ namespace University_system.Services
             _usermanager = usermanager;
             _jwt = jwt.Value;
         }
+        public async Task<DownloadMaterialDTO> AddMaterial(Guid Studentid, Guid Materialid)
+        {
+            var result = await _context.Set<MaterialStudent>().SingleOrDefaultAsync(o => o.StudentId == Studentid && o.MaterialId == Materialid);
+
+            var NewMaterial = new DownloadMaterialDTO();
+
+            if (result == null)
+            {
+                var material = await _context.Set<Material>().FindAsync(Materialid);
+
+                if (material.Completion_requires.ToLower() == "none") 
+                {
+                    NewMaterial.Studentid = Studentid;
+                    NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
+                    NewMaterial.fail = "none";
+                }
+                else
+                {
+                    var lastmaterial = await _context.Set<Material>().SingleOrDefaultAsync(o => o.Completion_requires == material.Completion_requires);
+
+                    var success = await _context.Set<MaterialStudent>().SingleOrDefaultAsync(o => o.StudentId == Studentid && o.MaterialId == Materialid);
+
+                    if (success != null && success.marks >= 60) 
+                    {
+                        NewMaterial.Studentid = Studentid;
+                        NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
+                        NewMaterial.fail = "none";
+                    }
+                    else NewMaterial.fail = "You must complete the requirement first";
+                }
+            }
+            else
+            {
+                if (result.marks < 60)
+                {
+                    await DeleteMaterial(Studentid, Materialid);
+                    NewMaterial.Studentid = Studentid;
+                    NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
+                    NewMaterial.fail = "none";
+                }
+                else NewMaterial.fail = "This material is complete";
+            }
+
+            if(NewMaterial.fail == "none")
+            {
+                var insert = new MaterialStudent();
+
+                insert.StudentId = Studentid;
+                insert.MaterialId = Materialid;
+                insert.marks = 0; 
+
+                _context.Set<MaterialStudent>().Add(insert);
+                _context.SaveChanges();
+            }
+
+            return NewMaterial;
+        }
         public T Add(T entity)
         {
             _context.Set<T>().Add(entity);
@@ -51,11 +108,22 @@ namespace University_system.Services
         {
             var result = await _usermanager.GetUsersInRoleAsync(title);
 
-            return result.Cast<Employee>().ToList();
+            var emp = result.Cast<Employee>().ToList();
+            
+            return emp;
         }
         public async Task<T> GetById(Guid id) => await _context.Set<T>().FindAsync(id);
         public async Task<IEnumerable<Student>> GetByYear(int year) => 
             await _context.Set<Student>().Where(b=>b.Year_of_registration.Equals(year)).ToListAsync();
+        public async Task<IEnumerable<MaterialStudent>> GetAllMaterial(Guid id)
+        {
+            var result = await _context.Set<MaterialStudent>()
+                .Where(o => o.StudentId == id)
+                .Where(o => o.marks >= 60)
+                .ToListAsync();
+            
+            return result;
+        }
         public async Task<Material> GetMaterialByName(string name) => await _context.Set<Material>().SingleOrDefaultAsync(b=>b.Name==name);
 
         public async Task<T> Update(Guid id,T entity)
@@ -70,7 +138,22 @@ namespace University_system.Services
 
             return res;
         }
+        public async Task<DownloadMaterialDTO> DeleteMaterial(Guid Studentid, Guid Materialid)
+        {
+            var result = await _context.Set<MaterialStudent>().SingleOrDefaultAsync(o => o.StudentId == Studentid && o.MaterialId == Materialid);
 
+            var material = new DownloadMaterialDTO();
+
+            if (result == null)
+                material.fail = "none";
+            else
+            {
+                _context.Set<MaterialStudent>().Remove(result);
+                _context.SaveChanges();
+            }
+
+            return material;
+        }
         public async Task<AuthModel> RegisterAsync_stu(AddStudentDTO model)
         {
             if (await _usermanager.FindByEmailAsync(model.Email) != null)

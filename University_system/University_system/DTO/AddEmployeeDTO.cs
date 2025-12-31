@@ -4,6 +4,7 @@ namespace University_system.DTO
 {
     public class AddEmployeeDTO
     {
+        public Guid Id { get; set; }
         [Required, MaxLength(50)]
         public string First_Name { get; set; }
         [Required, MaxLength(50)]

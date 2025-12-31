@@ -100,17 +100,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Employee"
+                "$ref": "#/components/schemas/AddEmployeeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Employee"
+                "$ref": "#/components/schemas/AddEmployeeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Employee"
+                "$ref": "#/components/schemas/AddEmployeeDTO"
               }
             }
           }
@@ -175,7 +175,7 @@
         }
       }
     },
-    "/Get Student Balance by id": {
+    "/api/finance/id": {
       "get": {
         "tags": [
           "Finance"
@@ -197,7 +197,7 @@
         }
       }
     },
-    "/id": {
+    "/api/finance/add": {
       "put": {
         "tags": [
           "Finance"
@@ -225,29 +225,9 @@
             "description": "OK"
           }
         }
-      },
-      "get": {
-        "tags": [
-          "Student"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
-    "/": {
+    "/api/material/all": {
       "get": {
         "tags": [
           "Material"
@@ -259,7 +239,7 @@
         }
       }
     },
-    "/Get by name": {
+    "/api/material/name": {
       "get": {
         "tags": [
           "Material"
@@ -280,7 +260,7 @@
         }
       }
     },
-    "/Add material": {
+    "/api/material/add": {
       "post": {
         "tags": [
           "Material"
@@ -311,7 +291,7 @@
         }
       }
     },
-    "/Update material": {
+    "/api/material/update": {
       "put": {
         "tags": [
           "Material"
@@ -342,7 +322,7 @@
         }
       }
     },
-    "/Delete by name": {
+    "/api/material/delete": {
       "delete": {
         "tags": [
           "Material"
@@ -363,7 +343,90 @@
         }
       }
     },
-    "/register year": {
+    "/api/materialstudent/allmaterial": {
+      "get": {
+        "tags": [
+          "MaterialStudent"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/materialstudent/downloadmaterial": {
+      "post": {
+        "tags": [
+          "MaterialStudent"
+        ],
+        "parameters": [
+          {
+            "name": "Studentid",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Materialid",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/materialstudent/deletematerial": {
+      "delete": {
+        "tags": [
+          "MaterialStudent"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadMaterialDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadMaterialDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadMaterialDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/student/allbyyear": {
       "get": {
         "tags": [
           "Student"
@@ -385,7 +448,29 @@
         }
       }
     },
-    "/Student register": {
+    "/api/student/id": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/student/register": {
       "post": {
         "tags": [
           "Student"
@@ -416,7 +501,7 @@
         }
       }
     },
-    "/Update student data": {
+    "/api/student/update": {
       "put": {
         "tags": [
           "Student"
@@ -425,17 +510,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/AddStudentDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/AddStudentDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/AddStudentDTO"
               }
             }
           }
@@ -447,7 +532,7 @@
         }
       }
     },
-    "/Remove student": {
+    "/api/student/delete": {
       "delete": {
         "tags": [
           "Student"
@@ -469,7 +554,7 @@
         }
       }
     },
-    "/Token stu": {
+    "/api/student/token": {
       "post": {
         "tags": [
           "Student"
@@ -517,6 +602,10 @@
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
           "first_Name": {
             "maxLength": 50,
             "minLength": 1,
@@ -575,6 +664,10 @@
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
           "first_Name": {
             "maxLength": 50,
             "minLength": 1,
@@ -627,128 +720,19 @@
         },
         "additionalProperties": false
       },
-      "Employee": {
-        "required": [
-          "first_Name",
-          "gender",
-          "last_Name",
-          "salary"
-        ],
+      "DownloadMaterialDTO": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "normalizedUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "normalizedEmail": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailConfirmed": {
-            "type": "boolean"
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "securityStamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "concurrencyStamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumberConfirmed": {
-            "type": "boolean"
-          },
-          "twoFactorEnabled": {
-            "type": "boolean"
-          },
-          "lockoutEnd": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lockoutEnabled": {
-            "type": "boolean"
-          },
-          "accessFailedCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "first_Name": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string"
-          },
-          "last_Name": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string"
-          },
-          "gender": {
-            "maxLength": 20,
-            "minLength": 1,
-            "type": "string"
-          },
-          "salary": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Material": {
-        "required": [
-          "name",
-          "number_of_hour",
-          "subject_professor"
-        ],
-        "type": "object",
-        "properties": {
-          "materialId": {
+          "studentid": {
             "type": "string",
             "format": "uuid"
           },
           "name": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string"
-          },
-          "number_of_hour": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "completion_requires": {
             "type": "string",
             "nullable": true
           },
-          "subject_professor": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "students": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Student"
-            },
+          "fail": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -782,112 +766,6 @@
           "subject_professor": {
             "minLength": 1,
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Student": {
-        "required": [
-          "first_Name",
-          "gender",
-          "last_Name",
-          "year_of_registration"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "normalizedUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "normalizedEmail": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailConfirmed": {
-            "type": "boolean"
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "securityStamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "concurrencyStamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumberConfirmed": {
-            "type": "boolean"
-          },
-          "twoFactorEnabled": {
-            "type": "boolean"
-          },
-          "lockoutEnd": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lockoutEnabled": {
-            "type": "boolean"
-          },
-          "accessFailedCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "first_Name": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string"
-          },
-          "last_Name": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string"
-          },
-          "gender": {
-            "maxLength": 20,
-            "minLength": 1,
-            "type": "string"
-          },
-          "year_of_registration": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "gpa": {
-            "type": "number",
-            "format": "double"
-          },
-          "is_Grant": {
-            "type": "boolean"
-          },
-          "student_Balance": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "materials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Material"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

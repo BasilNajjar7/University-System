@@ -9,6 +9,6 @@ namespace University_system.Model
         public double GPA { get; set; }
         public bool Is_Grant { get; set; }
         public int Student_Balance { get; set; }
-        public ICollection<Material> Materials { get; set; }
+        public ICollection<MaterialStudent> MaterialStudents { get; set; }
     }
 }

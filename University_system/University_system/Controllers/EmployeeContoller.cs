@@ -55,12 +55,22 @@ namespace University_system.Controllers
         }
         [HttpPut]
         [Route("api/employee/update")]
-        public async Task<IActionResult> Update(Employee employee)
+        public async Task<IActionResult> Update(AddEmployeeDTO employee)
         {
-            if (_repository.GetById(employee.Id) == null)
+            if (await _repository.GetById(employee.Id) == null)
                 return NotFound();
 
-            var result = await _repository.Update(employee.Id, employee);
+            var emp = new Employee();
+
+            emp.Id = employee.Id;
+            emp.First_Name = employee.First_Name;
+            emp.Last_Name= employee.Last_Name;
+            emp.UserName = employee.UserName;
+            emp.Gender= employee.Gender;
+            emp.PhoneNumber = employee.Phone_Number;
+            emp.Salary=employee.Salary;
+
+            var result = await _repository.Update(employee.Id,emp);
 
             return Ok(result);
         }
