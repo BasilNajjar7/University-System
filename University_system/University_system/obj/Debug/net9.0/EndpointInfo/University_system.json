@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/Get all employee": {
+    "/api/employee/all": {
       "get": {
         "tags": [
           "EmployeeContoller"
@@ -17,7 +17,28 @@
         }
       }
     },
-    "/Get employee by id": {
+    "/api/employee/title": {
+      "get": {
+        "tags": [
+          "EmployeeContoller"
+        ],
+        "parameters": [
+          {
+            "name": "JobTitle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/employee/id": {
       "get": {
         "tags": [
           "EmployeeContoller"
@@ -39,7 +60,7 @@
         }
       }
     },
-    "/Employee register": {
+    "/api/employee/add": {
       "post": {
         "tags": [
           "EmployeeContoller"
@@ -70,7 +91,7 @@
         }
       }
     },
-    "/Update emplyee data": {
+    "/api/employee/update": {
       "put": {
         "tags": [
           "EmployeeContoller"
@@ -101,7 +122,7 @@
         }
       }
     },
-    "/Remove employee": {
+    "/api/employee/delete": {
       "delete": {
         "tags": [
           "EmployeeContoller"
@@ -123,7 +144,7 @@
         }
       }
     },
-    "/Token emp": {
+    "/api/employee/token": {
       "post": {
         "tags": [
           "EmployeeContoller"
@@ -487,6 +508,7 @@
           "email",
           "first_Name",
           "gender",
+          "job_Title",
           "last_Name",
           "password",
           "phone_Number",
@@ -526,6 +548,10 @@
             "type": "string"
           },
           "phone_Number": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "job_Title": {
             "minLength": 1,
             "type": "string"
           },

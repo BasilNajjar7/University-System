@@ -14,7 +14,7 @@ namespace University_system.Controllers
             _repository = repository;
         }
         [HttpGet]
-        [Route("")]
+        [Route("api/material/all")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _repository.GetAll();
@@ -22,7 +22,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Get by name")]
+        [Route("api/material/name")]
         public async Task<IActionResult> GetByName(string name)
         {
             var result = await _repository.GetMaterialByName(name);
@@ -33,7 +33,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpPost]
-        [Route("Add material")]
+        [Route("api/material/add")]
         public IActionResult AddNewMaterial(MaterialDTO material)
         {
             Material material1=new Material();
@@ -48,7 +48,7 @@ namespace University_system.Controllers
             return Ok();
         }
         [HttpPut]
-        [Route("Update material")]
+        [Route("api/material/update")]
         public async Task<IActionResult> UpdateMaterial(MaterialDTO material)
         {
             var LastMaterial = await _repository.GetById(material.MaterialId);
@@ -67,7 +67,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpDelete]
-        [Route("Delete by name")]
+        [Route("api/material/delete")]
         public async Task<IActionResult> DeleteMaterial(string MaterialName)
         {
             var result = await _repository.GetMaterialByName(MaterialName);

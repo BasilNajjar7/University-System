@@ -8,10 +8,11 @@ namespace University_system.Services
     {
         Task<T> GetById(Guid id);
         Task<IEnumerable<T>> GetAll();
+        Task<IEnumerable<Employee>>GetAllEmployeeByJobTitle(string title);
         Task<T> Update(Guid id,T entity);
         Task<IEnumerable<Student>> GetByYear(int year);
         T Add(T entity);
-        T Delete(Guid id);
+        Task<T> Delete(Guid id);
         Task<Material> GetMaterialByName(string name);
         Task<AuthModel> RegisterAsync_stu(AddStudentDTO model);
         Task<AuthModel> RegisterAsync_emp(AddEmployeeDTO model);

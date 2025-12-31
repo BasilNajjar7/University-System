@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\controllers\\employeecontoller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\controllers\\employeecontoller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\services\\irepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\services\\irepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,28 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RepositoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
-              "RelativeDocumentMoniker": "University_system\\Services\\RepositoryService.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
-              "RelativeToolTip": "University_system\\Services\\RepositoryService.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAiwG0AAABDAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Program.cs",
+              "RelativeDocumentMoniker": "University_system\\Program.cs",
+              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Program.cs",
+              "RelativeToolTip": "University_system\\Program.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAkwDcAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T15:36:52.369Z",
+              "WhenOpened": "2025-12-31T12:19:26.145Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "University_system\\Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "University_system\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwDIAAAAAAAAAAAAAAA==",
+              "Title": "IRepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\IRepositoryService.cs",
+              "RelativeDocumentMoniker": "University_system\\Services\\IRepositoryService.cs",
+              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\IRepositoryService.cs",
+              "RelativeToolTip": "University_system\\Services\\IRepositoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T15:34:57.27Z",
+              "WhenOpened": "2025-12-31T11:58:55.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
+              "RelativeDocumentMoniker": "University_system\\Services\\RepositoryService.cs",
+              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
+              "RelativeToolTip": "University_system\\Services\\RepositoryService.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAuwCQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T11:37:06.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeeContoller.cs",
+              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\EmployeeContoller.cs",
+              "RelativeDocumentMoniker": "University_system\\Controllers\\EmployeeContoller.cs",
+              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\EmployeeContoller.cs*",
+              "RelativeToolTip": "University_system\\Controllers\\EmployeeContoller.cs*",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAYwEsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T11:35:40.818Z",
               "EditorCaption": ""
             }
           ]

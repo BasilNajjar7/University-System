@@ -19,6 +19,8 @@ namespace University_system.DTO
         [Required]
         public string Phone_Number { get; set; }
         [Required]
+        public string Job_Title { get; set; }
+        [Required]
         public int Salary { get; set; }
     }
 }

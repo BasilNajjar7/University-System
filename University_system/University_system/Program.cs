@@ -33,7 +33,12 @@ namespace University_system
             
             builder.Services.AddDbContext<ApplicationDbContext>(b =>
                 b.UseSqlServer(builder.Configuration["ConnectionStrings:DefultConnection"]));
+
+        //    builder.Services.Configure<NameRoles>(builder.Configuration.GetSection("NameRoles"));
+            builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
             
+            
+
             var JwtOptions = builder.Configuration.GetSection("JWT").Get<JWT>();
 
             builder.Services.AddIdentity<User, IdentityRole<Guid>>(op =>
@@ -43,10 +48,12 @@ namespace University_system
                 op.Password.RequireLowercase = false;
                 op.Password.RequireNonAlphanumeric = false;
                 op.Password.RequireUppercase = false;
+                op.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
             builder.Services.AddScoped(typeof(IRepositoryService<>),typeof(RepositoryService<>));
+            //builder.Services.AddScoped<RoleManager<IdentityRole<Guid>>>();
 
             builder.Services.AddAuthentication(op =>
             {

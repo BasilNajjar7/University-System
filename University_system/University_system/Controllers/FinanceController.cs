@@ -12,7 +12,8 @@ namespace University_system.Controllers
         {
             _repository = repository;
         }
-        [HttpGet("Get Student Balance by id")]
+        [HttpGet]
+        [Route("api/finance/id")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result=await _repository.GetById(id);
@@ -22,7 +23,8 @@ namespace University_system.Controllers
             return Ok(result.Student_Balance);
         }
 
-        [HttpPut("id")]
+        [HttpPut]
+        [Route("api/finance/add")]
         public async Task<IActionResult> CashDeposit(Guid id,int money)
         {
             var result = await _repository.GetById(id);

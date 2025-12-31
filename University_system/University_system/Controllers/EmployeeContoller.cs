@@ -14,7 +14,7 @@ namespace University_system.Controllers
             _repository = repository;
         }
         [HttpGet]
-        [Route("Get all employee")]
+        [Route("api/employee/all")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _repository.GetAll();
@@ -22,7 +22,15 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Get employee by id")]
+        [Route("api/employee/title")]
+        public async Task<IActionResult> GetAllByJobTitle(string JobTitle)
+        {
+            var result = await _repository.GetAllEmployeeByJobTitle(JobTitle);
+
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("api/employee/id")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _repository.GetById(id);
@@ -31,7 +39,8 @@ namespace University_system.Controllers
 
             return Ok(result);
         }
-        [HttpPost("Employee register")]
+        [HttpPost]
+        [Route("api/employee/add")]
         public async Task<IActionResult> RigisterAsync_emp([FromBody] AddEmployeeDTO model)
         {
             if (!ModelState.IsValid)
@@ -45,7 +54,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpPut]
-        [Route("Update emplyee data")]
+        [Route("api/employee/update")]
         public async Task<IActionResult> Update(Employee employee)
         {
             if (_repository.GetById(employee.Id) == null)
@@ -56,16 +65,17 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpDelete]
-        [Route("Remove employee")]
-        public IActionResult DeleteById(Guid id)
+        [Route("api/employee/delete")]
+        public async Task<IActionResult> DeleteById(Guid id)
         {
-            var result = _repository.Delete(id);
+            var result = await _repository.Delete(id);
 
             if (result == null) return NotFound();
 
             return Ok();
         }
-        [HttpPost("Token emp")]
+        [HttpPost]
+        [Route("api/employee/token")]
         public async Task<IActionResult> GetTokenAsync([FromBody] TokenRequestModel model)
         {
             if (!ModelState.IsValid)

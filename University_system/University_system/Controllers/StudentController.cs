@@ -13,14 +13,16 @@ namespace University_system.Controllers
         {
             _repository = repository;
         }
-        [HttpGet("register year")]
+        [HttpGet]
+        [Route("api/student/allbyyear")]
         public async Task<IActionResult> GetByYear(int year)
         {
             var result = await _repository.GetByYear(year);
 
             return Ok(result);
         }
-        [HttpGet("id")]
+        [HttpGet]
+        [Route("api/student/id")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _repository.GetById(id);
@@ -29,8 +31,9 @@ namespace University_system.Controllers
 
             return Ok(result);
         }
-        [HttpPost("Student register")]
-        public async Task<IActionResult> RigisterAsync([FromBody] AddStudentDTO model)
+        [HttpPost]
+        [Route("api/student/register")]
+        public async Task<IActionResult> RegisterAsync([FromBody] AddStudentDTO model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -43,7 +46,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpPut]
-        [Route("Update student data")]
+        [Route("api/student/update")]
         public async Task<IActionResult> Update(Student student)
         {
             if (await _repository.GetById(student.Id) == null)
@@ -54,7 +57,7 @@ namespace University_system.Controllers
             return Ok(result);
         }
         [HttpDelete]
-        [Route("Remove student")]
+        [Route("api/student/delete")]
         public IActionResult DeleteById(Guid id)
         {
             var result = _repository.Delete(id);
@@ -63,7 +66,8 @@ namespace University_system.Controllers
 
             return Ok();
         }
-        [HttpPost("Token stu")]
+        [HttpPost]
+        [Route("api/student/token")]
         public async Task<IActionResult> GetTokenAsync([FromBody] TokenRequestModel model)
         {
             if (!ModelState.IsValid)

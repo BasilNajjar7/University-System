@@ -7,9 +7,11 @@ using Microsoft.VisualBasic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using University_system.Data;
 using University_system.DTO;
 using University_system.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace University_system.Services
 {
@@ -17,11 +19,11 @@ namespace University_system.Services
     {
         protected ApplicationDbContext _context;
         private readonly UserManager<User> _usermanager;
+        private readonly RoleManager<IdentityRole<Guid>> _roleManager;
         private readonly JWT _jwt;
-        private readonly NameRoles _roles;
-        public RepositoryService(NameRoles roles,ApplicationDbContext context, UserManager<User> usermanager, IOptions<JWT> jwt)
+        public RepositoryService(ApplicationDbContext context, UserManager<User> usermanager, RoleManager<IdentityRole<Guid>> roleManager, IOptions<JWT> jwt)
         {
-            _roles = roles;
+            _roleManager= roleManager;
             _context = context;
             _usermanager = usermanager;
             _jwt = jwt.Value;
@@ -32,9 +34,9 @@ namespace University_system.Services
             _context.SaveChanges();
             return entity;
         }
-        public T Delete(Guid id)
+        public async Task<T> Delete(Guid id)
         {
-            var result = _context.Set<T>().Find(id);
+            var result = await _context.Set<T>().FindAsync(id);
             
             if(result!=null)
             {
@@ -45,6 +47,12 @@ namespace University_system.Services
             return result;
         }
         public async Task<IEnumerable<T>> GetAll() => await _context.Set<T>().ToListAsync();
+        public async Task<IEnumerable<Employee>> GetAllEmployeeByJobTitle(string title)
+        {
+            var result = await _usermanager.GetUsersInRoleAsync(title);
+
+            return result.Cast<Employee>().ToList();
+        }
         public async Task<T> GetById(Guid id) => await _context.Set<T>().FindAsync(id);
         public async Task<IEnumerable<Student>> GetByYear(int year) => 
             await _context.Set<Student>().Where(b=>b.Year_of_registration.Equals(year)).ToListAsync();
@@ -107,7 +115,7 @@ namespace University_system.Services
                 return new AuthModel { Massage = errors };
             }
 
-            await _usermanager.AddToRoleAsync(user,_roles.student);
+            await _usermanager.AddToRoleAsync(user,"Student");
 
             var jwtSecurityToken = await CreateJwtToken(user);
 
@@ -116,7 +124,7 @@ namespace University_system.Services
                 Email = user.Email,
                 ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
-                Roles = new List<string> { _roles.student },
+                Roles = new List<string> { "Student" },
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Username = user.UserName
             };
@@ -138,6 +146,7 @@ namespace University_system.Services
                 UserName = model.UserName,
                 Gender = model.Gender,
                 Salary = model.Salary,
+                PhoneNumber=model.Phone_Number
             };
             var result = await _usermanager.CreateAsync(user, model.Password);
 
@@ -162,7 +171,10 @@ namespace University_system.Services
                 return new AuthModel { Massage = errors };
             }
 
-            await _usermanager.AddToRoleAsync(user, _roles.student);
+            if(await _context.Roles.AnyAsync(r=>r.Name==model.Job_Title) == false)
+                return new AuthModel { Massage = "Not found this job title" };
+
+            await _usermanager.AddToRoleAsync(user, model.Job_Title);
 
             var jwtSecurityToken = await CreateJwtToken(user);
 
@@ -171,7 +183,7 @@ namespace University_system.Services
                 Email = user.Email,
                 ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
-                Roles = new List<string> { "User" },
+                Roles = new List<string> { model.Job_Title },
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Username = user.UserName
             };
