@@ -702,6 +702,10 @@
             "minLength": 1,
             "type": "string"
           },
+          "costOfHour": {
+            "type": "integer",
+            "format": "int32"
+          },
           "year_of_registration": {
             "type": "integer",
             "format": "int32"

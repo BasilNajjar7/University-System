@@ -19,6 +19,7 @@ namespace University_system.DTO
         public string Password { get; set; }
         [Required]
         public string Phone_Number { get; set; }
+        public int CostOfHour { get; set; }
         [Required]
         public int Year_of_registration { get; set; }
         public double GPA { get; set; }

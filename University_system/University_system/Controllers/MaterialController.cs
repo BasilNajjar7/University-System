@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using University_system.DTO;
 using University_system.Model;
 using University_system.Services;
@@ -6,6 +7,7 @@ using University_system.Services;
 namespace University_system.Controllers
 {
     [ApiController]
+    [Authorize]
     public class MaterialController : ControllerBase
     {
         private readonly IRepositoryService<Material> _repository;
@@ -15,6 +17,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/material/all")]
+        [Authorize(Roles = "Professor,Dean")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _repository.GetAll();
@@ -23,6 +26,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/material/name")]
+        [Authorize(Roles = "Professor,Dean")]
         public async Task<IActionResult> GetByName(string name)
         {
             var result = await _repository.GetMaterialByName(name);
@@ -34,6 +38,7 @@ namespace University_system.Controllers
         }
         [HttpPost]
         [Route("api/material/add")]
+        [Authorize(Roles = "Admin,Dean")]
         public IActionResult AddNewMaterial(MaterialDTO material)
         {
             Material material1=new Material();
@@ -49,6 +54,7 @@ namespace University_system.Controllers
         }
         [HttpPut]
         [Route("api/material/update")]
+        [Authorize(Roles = "Dean")]
         public async Task<IActionResult> UpdateMaterial(MaterialDTO material)
         {
             var LastMaterial = await _repository.GetById(material.MaterialId);
@@ -68,6 +74,7 @@ namespace University_system.Controllers
         }
         [HttpDelete]
         [Route("api/material/delete")]
+        [Authorize(Roles = "Admin,Dean")]
         public async Task<IActionResult> DeleteMaterial(string MaterialName)
         {
             var result = await _repository.GetMaterialByName(MaterialName);

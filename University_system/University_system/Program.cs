@@ -43,7 +43,7 @@ namespace University_system
 
             builder.Services.AddIdentity<User, IdentityRole<Guid>>(op =>
             {
-                op.SignIn.RequireConfirmedAccount = false;
+                op.SignIn.RequireConfirmedAccount = true;
                 op.Password.RequiredLength = 6;
                 op.Password.RequireLowercase = false;
                 op.Password.RequireNonAlphanumeric = false;

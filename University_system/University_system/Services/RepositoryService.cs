@@ -34,11 +34,16 @@ namespace University_system.Services
 
             var NewMaterial = new DownloadMaterialDTO();
 
+            var student = await _context.Set<Student>().FindAsync(Studentid);
+
+            var material = await _context.Set<Material>().FindAsync(Materialid);
+           
             if (result == null)
             {
-                var material = await _context.Set<Material>().FindAsync(Materialid);
 
-                if (material.Completion_requires.ToLower() == "none") 
+                if (material.Number_of_hour * student.CostOfHour < student.Student_Balance)
+                    NewMaterial.fail = "Insufficient balance !!!";
+                else if (material.Completion_requires.ToLower() == "none") 
                 {
                     NewMaterial.Studentid = Studentid;
                     NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
@@ -77,9 +82,11 @@ namespace University_system.Services
 
                 insert.StudentId = Studentid;
                 insert.MaterialId = Materialid;
-                insert.marks = 0; 
-
+                insert.marks = 0;
+                student.Student_Balance -= student.CostOfHour * material.Number_of_hour;
+              
                 _context.Set<MaterialStudent>().Add(insert);
+                _context.Set<Student>().Update(student);
                 _context.SaveChanges();
             }
 

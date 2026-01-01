@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using University_system.Model;
 using University_system.Services;
 
 namespace University_system.Controllers
 {
     [ApiController]
+    [Authorize]
     public class FinanceController : ControllerBase
     {
         private readonly IRepositoryService<Student> _repository;
@@ -14,6 +16,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/finance/id")]
+        [Authorize(Roles = "Finance Employee")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result=await _repository.GetById(id);
@@ -25,6 +28,7 @@ namespace University_system.Controllers
 
         [HttpPut]
         [Route("api/finance/add")]
+        [Authorize(Roles = "Finance Employee")]
         public async Task<IActionResult> CashDeposit(Guid id,int money)
         {
             var result = await _repository.GetById(id);

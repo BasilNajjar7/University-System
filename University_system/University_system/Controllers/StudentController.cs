@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using University_system.DTO;
 using University_system.Model;
 using University_system.Services;
@@ -6,6 +7,7 @@ using University_system.Services;
 namespace University_system.Controllers
 {
     [ApiController]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IRepositoryService<Student> _repository;
@@ -23,6 +25,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/student/id")]
+        [Authorize(Roles = "Dean,Affairs Employee")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _repository.GetById(id);
@@ -33,6 +36,7 @@ namespace University_system.Controllers
         }
         [HttpPost]
         [Route("api/student/register")]
+        [Authorize(Roles = "Affairs Employee")]
         public async Task<IActionResult> RegisterAsync([FromBody] AddStudentDTO model)
         {
             if (!ModelState.IsValid)
@@ -47,6 +51,7 @@ namespace University_system.Controllers
         }
         [HttpPut]
         [Route("api/student/update")]
+        [Authorize(Roles = "Affairs Employee")]
         public async Task<IActionResult> Update(AddStudentDTO student)
         {
             if (await _repository.GetById(student.Id) == null)
@@ -63,6 +68,7 @@ namespace University_system.Controllers
             st.Year_of_registration= student.Year_of_registration;
             st.Is_Grant = student.Is_Grant;
             st.GPA= student.GPA;
+            st.CostOfHour = student.CostOfHour;
 
             var result = await _repository.Update(student.Id,st);
 
@@ -70,6 +76,7 @@ namespace University_system.Controllers
         }
         [HttpDelete]
         [Route("api/student/delete")]
+        [Authorize(Roles = "Affairs Employee")]
         public IActionResult DeleteById(Guid id)
         {
             var result = _repository.Delete(id);

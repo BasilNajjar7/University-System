@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using University_system.DTO;
 using University_system.Model;
 using University_system.Services;
@@ -6,6 +7,7 @@ using University_system.Services;
 namespace University_system.Controllers
 {
     [ApiController]
+    [Authorize]
     public class EmployeeContoller : ControllerBase
     {
         private readonly IRepositoryService<Employee> _repository;
@@ -15,6 +17,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/employee/all")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _repository.GetAll();
@@ -23,6 +26,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/employee/title")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllByJobTitle(string JobTitle)
         {
             var result = await _repository.GetAllEmployeeByJobTitle(JobTitle);
@@ -31,6 +35,7 @@ namespace University_system.Controllers
         }
         [HttpGet]
         [Route("api/employee/id")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _repository.GetById(id);
@@ -41,6 +46,7 @@ namespace University_system.Controllers
         }
         [HttpPost]
         [Route("api/employee/add")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RigisterAsync_emp([FromBody] AddEmployeeDTO model)
         {
             if (!ModelState.IsValid)
@@ -55,6 +61,7 @@ namespace University_system.Controllers
         }
         [HttpPut]
         [Route("api/employee/update")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(AddEmployeeDTO employee)
         {
             if (await _repository.GetById(employee.Id) == null)
@@ -76,6 +83,7 @@ namespace University_system.Controllers
         }
         [HttpDelete]
         [Route("api/employee/delete")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteById(Guid id)
         {
             var result = await _repository.Delete(id);
