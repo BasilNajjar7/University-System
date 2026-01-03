@@ -1,23 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20260101132431_AddAdminRole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:University_system\\Migrations\\20260101132431_AddAdminRole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\migrations\\20251230133754_seedroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\migrations\\20251230133754_seedroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__ProjectModels/Universities/True/SqlTable/dbo.AspNetRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\controllers\\employeecontoller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\controllers\\employeecontoller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -25,60 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20260101132431_AddAdminRole.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20260101132431_AddAdminRole.cs",
-              "RelativeDocumentMoniker": "University_system\\Migrations\\20260101132431_AddAdminRole.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20260101132431_AddAdminRole.cs*",
-              "RelativeToolTip": "University_system\\Migrations\\20260101132431_AddAdminRole.cs*",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T13:24:31.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20251230133754_SeedRoles.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20251230133754_SeedRoles.cs",
-              "RelativeDocumentMoniker": "University_system\\Migrations\\20251230133754_SeedRoles.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Migrations\\20251230133754_SeedRoles.cs",
-              "RelativeToolTip": "University_system\\Migrations\\20251230133754_SeedRoles.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwCoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T13:23:43.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.AspNetRoles [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__ProjectModels/Universities/True/SqlTable/dbo.AspNetRoles.sql",
-              "ToolTip": "dbo.AspNetRoles [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-01-01T13:23:19.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmployeeContoller.cs",
-              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\EmployeeContoller.cs",
-              "RelativeDocumentMoniker": "University_system\\Controllers\\EmployeeContoller.cs",
-              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Controllers\\EmployeeContoller.cs",
-              "RelativeToolTip": "University_system\\Controllers\\EmployeeContoller.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAIwBIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T13:19:09.574Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|c:\\users\\basil\\my-github\\university-system\\university_system\\university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B111E5-97C8-3EF9-5570-101AFA169AC6}|University_system\\University_system.csproj|solutionrelative:university_system\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
+              "RelativeDocumentMoniker": "University_system\\Services\\RepositoryService.cs",
+              "ToolTip": "C:\\Users\\Basil\\My-Github\\University-System\\University_system\\University_system\\Services\\RepositoryService.cs",
+              "RelativeToolTip": "University_system\\Services\\RepositoryService.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAgwGsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-03T16:12:38.344Z",
+              "EditorCaption": ""
             }
           ]
         }

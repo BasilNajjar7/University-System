@@ -41,13 +41,13 @@ namespace University_system.Services
             if (result == null)
             {
 
-                if (material.Number_of_hour * student.CostOfHour < student.Student_Balance)
+                if (material.Number_of_hour * student.CostOfHour < student.Student_Balance && !student.Is_Grant)
                     NewMaterial.fail = "Insufficient balance !!!";
                 else if (material.Completion_requires.ToLower() == "none") 
                 {
                     NewMaterial.Studentid = Studentid;
                     NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
-                    NewMaterial.fail = "none";
+                    NewMaterial.fail = (student.Is_Grant ? "none2" : "none");
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace University_system.Services
                     {
                         NewMaterial.Studentid = Studentid;
                         NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
-                        NewMaterial.fail = "none";
+                        NewMaterial.fail = (student.Is_Grant ? "none2" : "none");
                     }
                     else NewMaterial.fail = "You must complete the requirement first";
                 }
@@ -71,19 +71,19 @@ namespace University_system.Services
                     await DeleteMaterial(Studentid, Materialid);
                     NewMaterial.Studentid = Studentid;
                     NewMaterial.Name = _context.Set<Material>().Find(Materialid).Name;
-                    NewMaterial.fail = "none";
+                    NewMaterial.fail = (student.Is_Grant ? "none2" : "none");
                 }
                 else NewMaterial.fail = "This material is complete";
             }
 
-            if(NewMaterial.fail == "none")
+            if(NewMaterial.fail == "none" || NewMaterial.fail == "none2")
             {
                 var insert = new MaterialStudent();
 
                 insert.StudentId = Studentid;
                 insert.MaterialId = Materialid;
                 insert.marks = 0;
-                student.Student_Balance -= student.CostOfHour * material.Number_of_hour;
+                if(NewMaterial.fail == "none") student.Student_Balance -= student.CostOfHour * material.Number_of_hour;
               
                 _context.Set<MaterialStudent>().Add(insert);
                 _context.Set<Student>().Update(student);
